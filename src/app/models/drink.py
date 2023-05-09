@@ -11,5 +11,5 @@ class Drink(db.Model):
     price = db.Column(db.Integer())
     alcoholic = db.Column(db.Integer())
 
-    orders = relationship('Order', back_populates='drink', overlaps="bartenders,drinks")
-    bartenders = db.relationship('Bartender', secondary='orders', overlaps="bartender, drinks,orders")
+    
+    

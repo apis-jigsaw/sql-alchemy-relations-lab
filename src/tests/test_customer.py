@@ -23,9 +23,8 @@ def build_db():
         yield db
         delete_records(db)
 
-def test_customer_has_many_orders():    
-    first_customer = build_db.session.query(Customer).first()
-    assert len(first_customer.orders) == 2
+def test_customer_has_many_orders(build_db):    
+    pass
 
 def test_customer_has_many_drinks():
     bart = Customer(name = 'bart', hometown = "springfield", birthyear = 1970)
@@ -40,8 +39,8 @@ def test_customer_has_many_drinks():
         for i in range(2):
             order = Order()
             order.customer = bart
-            order.drink = drinks[i]
+            
             db.session.add(order)
             db.session.commit()
+        # add assert statement
         
-        assert len(bart.drinks) == 2

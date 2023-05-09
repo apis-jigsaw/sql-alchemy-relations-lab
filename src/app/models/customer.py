@@ -10,5 +10,5 @@ class Customer(db.Model):
     birthyear = db.Column(db.Integer(), unique=True, nullable=False)
 
     orders = relationship('Order', back_populates = 'customer', cascade='all, delete-orphan')
-    
-    drinks = db.relationship('Drink', secondary='orders', overlaps="bartender,orders")
+
+    drinks = db.relationship('Drink', secondary='orders')

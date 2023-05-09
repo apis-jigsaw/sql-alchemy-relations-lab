@@ -23,7 +23,7 @@ def build_db():
         yield db
         delete_records(db)
 
-def test_customer_has_many_orders():    
+def test_customer_has_many_orders(build_db):    
     first_customer = build_db.session.query(Customer).first()
     assert len(first_customer.orders) == 2
 
